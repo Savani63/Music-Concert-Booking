@@ -1,0 +1,75 @@
+using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+namespace Concert_Booking
+{
+public partial class Form1 : Form
+{
+public Form1()
+{
+InitializeComponent();
+}
+
+private void button1_Click(object sender, EventArgs e)
+{
+
+}
+private void button2_Click(object sender, EventArgs e)
+{
+}
+private void label13_Click(object sender, EventArgs e)
+{
+}
+private void label12_Click(object sender, EventArgs e)
+{
+}
+private void dataGridView2_CellContentClick(object sender,
+DataGridViewCellEventArgs e)
+{
+}
+private void button3_Click(object sender, EventArgs e)
+{
+String str = "Data Source=DESKTOP-F11DRD1;Initial Catalog=master;Integrated
+Security=True";
+
+SqlConnection conn = new SqlConnection(str);
+conn.Open();
+String name = textBox5.Text;
+String age = textBox6.Text;
+String date = dateTimePicker2.Text;
+String gender = comboBox5.Text;
+String phone = textBox7.Text;
+String email = textBox8.Text;
+String ticket = comboBox3.Text;
+String seats = comboBox4.Text;
+String sql = "insert into reserve values('" + name + "'," + age + ",'" + date + "','" +
+gender + "'," + phone + ",'" + email + "','" + ticket + "'," + seats + ");";
+SqlCommand cmd = new SqlCommand(sql, conn);
+
+cmd.ExecuteNonQuery();
+conn.Close();
+/* cmd.Parameters.AddWithValue("@name", textBox1.Text);
+cmd.Parameters.AddWithValue("@age", textBox2.Text);
+cmd.Parameters.AddWithValue("@date", dateTimePicker1.Text);
+cmd.Parameters.AddWithValue("@gender", comboBox3.Text);
+cmd.Parameters.AddWithValue("@phone", textBox3.Text);
+cmd.Parameters.AddWithValue("@email", textBox4.Text);
+cmd.Parameters.AddWithValue("@ticket", comboBox1.Text);
+cmd.Parameters.AddWithValue("@seats", comboBox2.Text); */
+MessageBox.Show("record added");
+}
+private void button4_Click(object sender, EventArgs e)
+{
+String str = "Data Source=DESKTOP-F11DRD1;Initial Catalog=master;Integrated
+Security=True";
+
+SqlConnection conn = new SqlConnection(str);
+conn.Open();
